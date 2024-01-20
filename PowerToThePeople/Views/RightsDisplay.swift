@@ -13,7 +13,7 @@ import AVFoundation
 // This is just a placeholder for the camera stuff
 
 struct RightsDisplay: View {
-    private let videoCaptureViewModel: VideoCaptureViewModel = VideoCaptureViewModel()
+    @StateObject private var videoCaptureViewModel: VideoCaptureViewModel = VideoCaptureViewModel()
     
     func toggleRecording() {
         print("Recording toggled")
