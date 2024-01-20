@@ -16,22 +16,15 @@ import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        NavigationSplitView {
-            List {
-                
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+        NavigationStack {
+            VStack {
+                NavigationLink {
+                    RightsDisplay()
+                } label: {
+                    Text("Rights Display")
                 }
             }
-        } detail: {
-            Text("Select an item")
+            .navigationTitle("Power to the People")
         }
     }
 
