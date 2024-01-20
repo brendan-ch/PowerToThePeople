@@ -29,8 +29,7 @@ class VideoCaptureService: NSObject {
     // TO-DO: figure out why this property isn't computing correctly
     // I have no idea why
     var isRecording: Bool {
-        print(videoOutput.isRecording)
-        return videoOutput.isRecording
+        captureSession.isRunning
     }
     
     override init() {
