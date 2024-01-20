@@ -20,6 +20,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Spacer()
                 ZStack {
                     Circle()
                         .frame(width: 200, height: 200)
@@ -34,9 +35,13 @@ struct HomeView: View {
                 }
                 
                 Button(action: requestPermissions) {
-                    Text("Request Permissions")
+                    Text("Request Permissions (testing)")
                 }
+                Spacer()
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .background(isTapped ? Color.blue : nil)
+            .ignoresSafeArea()
         }
     }
     
