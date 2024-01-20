@@ -109,6 +109,7 @@ class VideoCaptureService: NSObject {
     /// Start recording video.
     /// @param toFront The URL to write to for the front camera.
     /// @param toBack the URL to write to for the back camera.
+    /// @param completion Completion handler determining whether video capture was started successfully.
     func startRecording(toFront videoUrlFront: URL, toBack videoUrlBack: URL, completion: @escaping (Bool) -> Void) {
         guard !videoOutputFront.isRecording else { return }
         guard !videoOutputBack.isRecording else { return }
@@ -125,7 +126,8 @@ class VideoCaptureService: NSObject {
 
     }
 
-    /// Stop recording all video, and stop the capture session.
+    /// Stop recording all video, and stop the capture
+    /// @param completion Completion handler determining whether video capture was stopped successfully.
     func stopRecording(completion: @escaping (Bool) -> Void) {
         guard videoOutputFront.isRecording else { return }
         guard videoOutputBack.isRecording else { return }

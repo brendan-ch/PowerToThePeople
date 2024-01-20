@@ -14,6 +14,7 @@ class VideoCaptureViewModel: ObservableObject {
     @Published var isRecording = false
     @Published var error: Error?
     
+    /// Create video directory, start recording the video, and update the state.
     func startRecording() {
         // Create a new folder with the current timestamp
         let dateFormatter = DateFormatter()
@@ -37,6 +38,7 @@ class VideoCaptureViewModel: ObservableObject {
         }
     }
     
+    /// Stop the recording and update the state.
     func stopRecording() {
         service.stopRecording() { [weak self] finished in
             DispatchQueue.main.async {
