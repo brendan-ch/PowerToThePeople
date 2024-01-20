@@ -87,15 +87,17 @@ class VideoCaptureService: NSObject {
         captureSession.commitConfiguration()
     }
     
-    func startRecording(to url: URL) {
+    /// Start recording video.
+    /// @param toFolder The folder URL to write to. Folder must be empty and created before calling this method.
+    func startRecording(toFront videoUrlFront: URL, toBack videoUrlBack: URL) {
         guard !videoOutputFront.isRecording else { return }
         guard !videoOutputBack.isRecording else { return }
         
         // Avoid UI hangs by starting the camera in the background
         DispatchQueue.global(qos: .background).async {
             self.captureSession.startRunning()
-            self.videoOutputFront.startRecording(to: url, recordingDelegate: self)
-            self.videoOutputBack.startRecording(to: url, recordingDelegate: self)
+            self.videoOutputFront.startRecording(to: videoUrlFront, recordingDelegate: self)
+            self.videoOutputBack.startRecording(to: videoUrlBack, recordingDelegate: self)
         }
 
     }

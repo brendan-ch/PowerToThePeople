@@ -14,9 +14,8 @@ class VideoCaptureViewModel: ObservableObject {
     @Published var isRecording = false
     @Published var error: Error?
     
-    func startRecording(to url: URL) {
-        // TO-DO: implement URL passing in service
-        service.startRecording(to: url)
+    func startRecording(toFolder url: URL) {
+        service.startRecording(toFront: url.appendingPathComponent("front.mov"), toBack: url.appendingPathComponent("back.mov"))
         
         // TO-DO: read the property from the service
         isRecording = service.isRecording
