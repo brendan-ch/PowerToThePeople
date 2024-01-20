@@ -18,14 +18,12 @@ class VideoCaptureService: NSObject {
     
     /// Whether the user has granted capture permissions to the app.
     var isAuthorized: Bool {
-        get async {
-            let status = AVCaptureDevice.authorizationStatus(for: .video)
-            
-            // Determine if the user previously authorized camera access.
-            var isAuthorized = status == .authorized
-            
-            return isAuthorized
-        }
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        
+        // Determine if the user previously authorized camera access.
+        var isAuthorized = status == .authorized
+        
+        return isAuthorized
     }
     
     override init() {
