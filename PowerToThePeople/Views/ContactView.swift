@@ -18,7 +18,7 @@ struct ContactView: View {
                 TextField("Phone number", text: .constant(""))
                     .textContentType(.telephoneNumber)
                     .keyboardType(.phonePad)
-                TextField("Message", text: $contact.name, axis: .vertical)
+                TextField("Message", text: $contact.message, axis: .vertical)
                     .lineLimit(4, reservesSpace: true)
             }
         }
