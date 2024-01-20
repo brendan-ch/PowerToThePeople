@@ -8,6 +8,12 @@
 import SwiftUI
 import SwiftData
 
+// TO-DO
+// SwiftData data specs - NOT STARTED
+// Front and back recording, permissions - NOT STARTED
+// File storage + organization - NOT STARTED
+// Display video files - NOT STARTED
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
