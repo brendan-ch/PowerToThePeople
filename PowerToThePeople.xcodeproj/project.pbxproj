@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20187A4C2B5BB9DE009D98EF /* VideoCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20187A4B2B5BB9DE009D98EF /* VideoCaptureService.swift */; };
 		206AF7E92B5B9DBF008DA2DC /* PowerToThePeopleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7E82B5B9DBF008DA2DC /* PowerToThePeopleApp.swift */; };
 		206AF7EB2B5B9DBF008DA2DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7EA2B5B9DBF008DA2DC /* ContentView.swift */; };
 		206AF7EF2B5B9DC1008DA2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206AF7EE2B5B9DC1008DA2DC /* Assets.xcassets */; };
 		206AF7F22B5B9DC1008DA2DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206AF7F12B5B9DC1008DA2DC /* Preview Assets.xcassets */; };
 		206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7F92B5BA35F008DA2DC /* Recording.swift */; };
 		206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */; };
-		206AF7FF2B5BAE45008DA2DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 206AF7FE2B5BAE45008DA2DC /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20187A4B2B5BB9DE009D98EF /* VideoCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureService.swift; sourceTree = "<group>"; };
 		206AF7E52B5B9DBF008DA2DC /* PowerToThePeople.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerToThePeople.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		206AF7E82B5B9DBF008DA2DC /* PowerToThePeopleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerToThePeopleApp.swift; sourceTree = "<group>"; };
 		206AF7EA2B5B9DBF008DA2DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +39,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20187A4A2B5BB830009D98EF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		206AF7DC2B5B9DBF008DA2DC = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +65,7 @@
 		206AF7E72B5B9DBF008DA2DC /* PowerToThePeople */ = {
 			isa = PBXGroup;
 			children = (
+				20187A4A2B5BB830009D98EF /* ViewModels */,
 				206AF7FB2B5BA806008DA2DC /* Views */,
 				206AF7F82B5BA347008DA2DC /* Models */,
 				206AF7E82B5B9DBF008DA2DC /* PowerToThePeopleApp.swift */,
@@ -80,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				206AF7F92B5BA35F008DA2DC /* Recording.swift */,
+				20187A4B2B5BB9DE009D98EF /* VideoCaptureService.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,7 +162,6 @@
 			files = (
 				206AF7F22B5B9DC1008DA2DC /* Preview Assets.xcassets in Resources */,
 				206AF7EF2B5B9DC1008DA2DC /* Assets.xcassets in Resources */,
-				206AF7FF2B5BAE45008DA2DC /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +174,7 @@
 			files = (
 				206AF7EB2B5B9DBF008DA2DC /* ContentView.swift in Sources */,
 				206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */,
+				20187A4C2B5BB9DE009D98EF /* VideoCaptureService.swift in Sources */,
 				206AF7E92B5B9DBF008DA2DC /* PowerToThePeopleApp.swift in Sources */,
 				206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */,
 			);
