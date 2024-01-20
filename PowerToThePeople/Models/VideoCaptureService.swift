@@ -48,15 +48,20 @@ class VideoCaptureService: NSObject {
     /// Attempt to request authorization for the camera.
     static func attemptAuthorization() {
         Task.init {
-            let status = AVCaptureDevice.authorizationStatus(for: .video)
-            if status == .notDetermined {
+            let videoStatus = AVCaptureDevice.authorizationStatus(for: .video)
+            if videoStatus == .notDetermined {
                 // Attempt to authorize video capture
                 await AVCaptureDevice.requestAccess(for: .video)
+            }
+            
+            let microphoneStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+            if microphoneStatus == .notDetermined {
+                await AVCaptureDevice.requestAccess(for: .audio)
             }
         }
     }
     
-    /// Perform video capture setup for the front and back cameras.
+    /// Perform video capture setup for the front and back cameras, and the microphone.
     func performSetup() {
         captureSession.beginConfiguration()
         
@@ -70,13 +75,20 @@ class VideoCaptureService: NSObject {
             return
         }
         
+        guard let microphoneDevice = AVCaptureDevice.default(for: .audio) else {
+            print("Unable to get microphone device")
+            return
+        }
+        
         // Set up video input
         if let videoInputFront = try? AVCaptureDeviceInput(device: videoDeviceFront),
            let videoInputBack = try? AVCaptureDeviceInput(device: videoDeviceBack),
+           let microphoneInput = try? AVCaptureDeviceInput(device: microphoneDevice),
            captureSession.canAddInput(videoInputFront) && captureSession.canAddInput(videoInputBack)
         {
             captureSession.addInput(videoInputFront)
             captureSession.addInput(videoInputBack)
+            captureSession.addInput(microphoneInput)
         } else {
             print("Unable to add video inputs to capture session")
             return
