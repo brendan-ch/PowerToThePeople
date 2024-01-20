@@ -13,17 +13,16 @@ import AVFoundation
 // This is just a placeholder for the camera stuff
 
 struct RightsDisplay: View {
-    @State private var recording: Bool = false
-    private let videoCaptureService: VideoCaptureService = VideoCaptureService()
+    private let videoCaptureViewModel: VideoCaptureViewModel = VideoCaptureViewModel()
     
     func toggleRecording() {
         print("Recording toggled")
-        recording = !recording
+        videoCaptureViewModel.startRecording(to: URL.documentsDirectory.appendingPathComponent("something.mov"))
     }
     
     var body: some View {
         Button(action: toggleRecording) {
-            if recording {
+            if videoCaptureViewModel.isRecording {
                 Text("Stop Recording")
             } else {
                 Text("Start Recording")
