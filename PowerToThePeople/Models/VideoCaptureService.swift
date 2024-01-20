@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 class VideoCaptureService: NSObject {
-    private let captureSession = AVCaptureMultiCamSession()
+    private let captureSession = AVCaptureSession()
     private var videoOutput = AVCaptureMovieFileOutput()
     
     /// Determines whether the video capture manager was successfully initialized.
@@ -56,11 +56,17 @@ class VideoCaptureService: NSObject {
             captureSession.addOutput(videoOutput)
         }
         
+        initialized = true
         captureSession.commitConfiguration()
     }
     
     func startRecording() {
+        captureSession.startRunning()
         guard !videoOutput.isRecording else { return }
+        
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        print(status.rawValue)
+        print(AVAuthorizationStatus.authorized.rawValue)
 
         let outputPath = NSTemporaryDirectory() + "output.mov"
         let outputFileURL = URL(fileURLWithPath: outputPath)
@@ -70,6 +76,7 @@ class VideoCaptureService: NSObject {
     func stopRecording() {
         guard videoOutput.isRecording else { return }
         videoOutput.stopRecording()
+        captureSession.stopRunning()
     }
 }
 
@@ -83,6 +90,7 @@ extension VideoCaptureService: AVCaptureFileOutputRecordingDelegate {
             print("Error recording video: \(error.localizedDescription)")
         } else {
             // Video recording is finished, do something with the file at outputFileURL
+            print("Video recording finished")
         }
     }
 }
