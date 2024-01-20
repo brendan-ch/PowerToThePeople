@@ -21,21 +21,7 @@ struct RightsDisplay: View {
         if videoCaptureViewModel.isRecording {
             videoCaptureViewModel.stopRecording()
         } else {
-            // Create a new folder with the current timestamp
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY.MM.DD HH.mm.ss"
-            let now = Date.now
-            let dateStr = dateFormatter.string(from: now)
-            
-            let saveDirectory = URL.documentsDirectory.appendingPathComponent(dateStr)
-            
-            do {
-                try FileManager.default.createDirectory(at: saveDirectory, withIntermediateDirectories: true)
-                
-                videoCaptureViewModel.startRecording(toFolder: saveDirectory)
-            } catch {
-                print("Unable to create folder/start video recording: \(error)")
-            }
+            videoCaptureViewModel.startRecording()
         }
     }
     

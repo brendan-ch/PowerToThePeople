@@ -14,11 +14,26 @@ class VideoCaptureViewModel: ObservableObject {
     @Published var isRecording = false
     @Published var error: Error?
     
-    func startRecording(toFolder url: URL) {
-        service.startRecording(toFront: url.appendingPathComponent("front.mov"), toBack: url.appendingPathComponent("back.mov"))
+    func startRecording() {
+        defer {
+            isRecording = service.isRecording
+        }
         
-        // TO-DO: read the property from the service
-        isRecording = service.isRecording
+        // Create a new folder with the current timestamp
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY.MM.DD HH.mm.ss"
+        let now = Date.now
+        let dateStr = dateFormatter.string(from: now)
+        
+        let saveDirectory = URL.documentsDirectory.appendingPathComponent(dateStr)
+        
+        do {
+            try FileManager.default.createDirectory(at: saveDirectory, withIntermediateDirectories: true)
+            
+            service.startRecording(toFront: saveDirectory.appendingPathComponent("front.mov"), toBack: saveDirectory.appendingPathComponent("back.mov"))
+        } catch {
+            print("Unable to create folder/start video recording: \(error)")
+        }
     }
     
     func stopRecording() {
