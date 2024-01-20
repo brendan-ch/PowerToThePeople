@@ -44,7 +44,16 @@ struct HomeView: View {
             .navigationDestination(isPresented: $isActivated) {
                 RightsDisplay()
             }
+            .toolbar {
+                Button(action: navigateToContacts) {
+                    Image(systemName: "gear")
+                }
+            }
         }
+    }
+    
+    private func navigateToContacts() {
+        // TO-DO: navigate to emergency contacts page
     }
     
     private func requestPermissions() {
