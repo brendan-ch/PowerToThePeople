@@ -109,7 +109,7 @@ class VideoCaptureService: NSObject {
     /// Start recording video.
     /// @param toFront The URL to write to for the front camera.
     /// @param toBack the URL to write to for the back camera.
-    func startRecording(toFront videoUrlFront: URL, toBack videoUrlBack: URL) {
+    func startRecording(toFront videoUrlFront: URL, toBack videoUrlBack: URL, completion: @escaping (Bool) -> Void) {
         guard !videoOutputFront.isRecording else { return }
         guard !videoOutputBack.isRecording else { return }
         
@@ -118,6 +118,7 @@ class VideoCaptureService: NSObject {
             self.captureSession.startRunning()
             self.videoOutputFront.startRecording(to: videoUrlFront, recordingDelegate: self)
             self.videoOutputBack.startRecording(to: videoUrlBack, recordingDelegate: self)
+            completion(true)
         }
 
     }
