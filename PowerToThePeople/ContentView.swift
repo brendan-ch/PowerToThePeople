@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 // TO-DO
-// SwiftData data specs - NOT STARTED
+// SwiftData data specs - IN PROGRESS
 // Front and back recording, permissions - NOT STARTED
 // File storage + organization - NOT STARTED
 // Display video files - NOT STARTED
