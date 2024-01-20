@@ -23,18 +23,22 @@ final class Recording {
     /// The timestamp that the recording was ended.
     let timestampEnded: Date
     
-    /// The location that the recording was taken.
-    let location: CLLocation?
+    /// Latitude of the location that the recording was taken.
+    let locationLatitude: Int32
+    
+    /// Longitude of the location that the recording was taken.
+    let locationLongitude: Int32
     
     /// Any notes added by the user.
     let notes: String
     
-    init(backCameraFile: URL, frontCameraFile: URL, timestampStarted: Date, timestampEnded: Date, location: CLLocation?, notes: String) {
+    init(backCameraFile: URL, frontCameraFile: URL, timestampStarted: Date, timestampEnded: Date, locationLatitude: Int32, locationLongitude: Int32, notes: String) {
         self.backCameraFile = backCameraFile
         self.frontCameraFile = frontCameraFile
         self.timestampStarted = timestampStarted
         self.timestampEnded = timestampEnded
-        self.location = location
+        self.locationLatitude = locationLatitude
+        self.locationLongitude = locationLongitude
         self.notes = notes
     }
 }
