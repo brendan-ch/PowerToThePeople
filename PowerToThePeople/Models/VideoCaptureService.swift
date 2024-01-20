@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 class VideoCaptureService: NSObject {
-    private let captureSession = AVCaptureSession()
+    private let captureSession = AVCaptureMultiCamSession()
     private var videoOutput = AVCaptureMovieFileOutput()
     
     /// Determines whether the video capture manager was successfully initialized.
