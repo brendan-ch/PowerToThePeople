@@ -90,6 +90,9 @@ extension VideoCaptureService: AVCaptureFileOutputRecordingDelegate {
         // Handle the end of recording
         if let error = error {
             print("Error recording video: \(error.localizedDescription)")
+            
+            // Force the capture session to stop
+            captureSession.stopRunning()
         } else {
             // Video recording is finished, do something with the file at outputFileURL
             print("Video recording finished")
