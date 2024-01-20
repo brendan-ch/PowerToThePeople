@@ -16,6 +16,7 @@ import SwiftData
 
 struct HomeView: View {
     @State private var isTapped = false
+    @State private var isActivated = false
     
     var body: some View {
         NavigationStack {
@@ -26,7 +27,8 @@ struct HomeView: View {
                         .frame(width: 200, height: 200)
                         .foregroundStyle(Color.blue)
                         .onLongPressGesture(minimumDuration: 2.0, maximumDistance: 100) {
-                            print("Activated")
+                            isActivated = true
+                            
                         } onPressingChanged: { inProgress in
                             isTapped = inProgress
                         }
@@ -42,6 +44,9 @@ struct HomeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .background(isTapped ? Color.blue : nil)
             .ignoresSafeArea()
+            .navigationDestination(isPresented: $isActivated) {
+                RightsDisplay()
+            }
         }
     }
     
