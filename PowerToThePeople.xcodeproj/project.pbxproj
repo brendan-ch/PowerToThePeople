@@ -12,6 +12,7 @@
 		206AF7EF2B5B9DC1008DA2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206AF7EE2B5B9DC1008DA2DC /* Assets.xcassets */; };
 		206AF7F22B5B9DC1008DA2DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206AF7F12B5B9DC1008DA2DC /* Preview Assets.xcassets */; };
 		206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7F92B5BA35F008DA2DC /* Recording.swift */; };
+		206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		206AF7EE2B5B9DC1008DA2DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		206AF7F12B5B9DC1008DA2DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		206AF7F92B5BA35F008DA2DC /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		206AF7E72B5B9DBF008DA2DC /* PowerToThePeople */ = {
 			isa = PBXGroup;
 			children = (
+				206AF7FB2B5BA806008DA2DC /* Views */,
 				206AF7F82B5BA347008DA2DC /* Models */,
 				206AF7E82B5B9DBF008DA2DC /* PowerToThePeopleApp.swift */,
 				206AF7EA2B5B9DBF008DA2DC /* ContentView.swift */,
@@ -76,6 +79,14 @@
 				206AF7F92B5BA35F008DA2DC /* Recording.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		206AF7FB2B5BA806008DA2DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				206AF7EB2B5B9DBF008DA2DC /* ContentView.swift in Sources */,
+				206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */,
 				206AF7E92B5B9DBF008DA2DC /* PowerToThePeopleApp.swift in Sources */,
 				206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */,
 			);
