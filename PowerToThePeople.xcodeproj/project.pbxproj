@@ -17,7 +17,6 @@
 		206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */; };
 		20EFB49B2B5C73AB00C772C4 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */; };
 		20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */; };
-		20EFB4A02B5C795600C772C4 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 20EFB49F2B5C795600C772C4 /* PhoneNumberKit */; };
 		20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20EFB4A02B5C795600C772C4 /* PhoneNumberKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +129,6 @@
 			);
 			name = PowerToThePeople;
 			packageProductDependencies = (
-				20EFB49F2B5C795600C772C4 /* PhoneNumberKit */,
 			);
 			productName = PowerToThePeople;
 			productReference = 206AF7E52B5B9DBF008DA2DC /* PowerToThePeople.app */;
@@ -162,7 +159,6 @@
 			);
 			mainGroup = 206AF7DC2B5B9DBF008DA2DC;
 			packageReferences = (
-				20EFB49E2B5C795600C772C4 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 			);
 			productRefGroup = 206AF7E62B5B9DBF008DA2DC /* Products */;
 			projectDirPath = "";
@@ -408,25 +404,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		20EFB49E2B5C795600C772C4 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.7.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		20EFB49F2B5C795600C772C4 /* PhoneNumberKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 20EFB49E2B5C795600C772C4 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
-			productName = PhoneNumberKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 206AF7DD2B5B9DBF008DA2DC /* Project object */;
 }

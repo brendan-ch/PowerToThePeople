@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftData
-import PhoneNumberKit
 
 @Model
 final class EmergencyContact {

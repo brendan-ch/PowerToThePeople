@@ -7,12 +7,11 @@
 
 import Foundation
 import SwiftData
-import PhoneNumberKit
 import SwiftUI
 
 /// View for editing emergency contacts.
 struct ContactsView: View {
-    let phoneNumberKit = PhoneNumberKit()
+
     @Query var contacts: [EmergencyContact]
     @Environment(\.modelContext) var modelContext
     
