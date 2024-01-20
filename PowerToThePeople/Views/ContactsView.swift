@@ -28,16 +28,20 @@ struct ContactsView: View {
                         contact.name == "" ? Text("New Contact") : Text(contact.name)
                     }
                 }
+                .onDelete(perform: deleteContacts)
                 
                 Button(action: addContact) {
                     Text("Add Emergency Contact")
                 }
             }
+            
         }
         .navigationTitle("Emergency Contacts")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationDestination(isPresented: $contactViewPresented) {
-            ContactView(contact: contacts[contacts.count - 1])
+            if contacts.count > 0 {
+                ContactView(contact: contacts[contacts.count - 1])
+            }
         }
     }
     
@@ -47,6 +51,13 @@ struct ContactsView: View {
             
             modelContext.insert(newContact)
             contactViewPresented = true
+        }
+    }
+    
+    func deleteContacts(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let contact = contacts[index]
+            modelContext.delete(contact)
         }
     }
 }
