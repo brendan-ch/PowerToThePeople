@@ -9,9 +9,9 @@ import SwiftUI
 import SwiftData
 
 // TO-DO
-// SwiftData data specs - IN PROGRESS
-// Front and back recording, permissions - NOT STARTED
-// File storage + organization - NOT STARTED
+// SwiftData data specs - COMPLETED
+// Front and back recording, permissions - COMPLETED
+// File storage + organization - IN PROGRESS
 // Display video files - NOT STARTED
 
 struct ContentView: View {
