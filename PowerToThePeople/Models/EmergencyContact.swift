@@ -11,13 +11,12 @@ import PhoneNumberKit
 
 @Model
 final class EmergencyContact {
-    let name: String
-    let phoneNumber: PhoneNumber
-    let message: String
+    var name: String
+    var phoneNumber: PhoneNumber?
+    var message: String
     
-    init(name: String, phoneNumber: PhoneNumber, message: String) {
+    init(name: String, message: String) {
         self.name = name
-        self.phoneNumber = phoneNumber
         self.message = message
     }
 }

@@ -18,6 +18,7 @@
 		20EFB49B2B5C73AB00C772C4 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */; };
 		20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */; };
 		20EFB4A02B5C795600C772C4 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 20EFB49F2B5C795600C772C4 /* PhoneNumberKit */; };
+		20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsDisplay.swift; sourceTree = "<group>"; };
 		20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
+		20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				206AF7EA2B5B9DBF008DA2DC /* HomeView.swift */,
 				206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */,
 				20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */,
+				20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */,
 				20187A4C2B5BB9DE009D98EF /* VideoCaptureService.swift in Sources */,
 				20187A4E2B5BBA85009D98EF /* VideoCaptureViewModel.swift in Sources */,
+				20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */,
 				20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */,
 				206AF7E92B5B9DBF008DA2DC /* PowerToThePeopleApp.swift in Sources */,
 				206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */,
