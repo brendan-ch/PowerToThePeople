@@ -118,19 +118,24 @@ class VideoCaptureService: NSObject {
             self.captureSession.startRunning()
             self.videoOutputFront.startRecording(to: videoUrlFront, recordingDelegate: self)
             self.videoOutputBack.startRecording(to: videoUrlBack, recordingDelegate: self)
+            
+            // CAVEAT: doesn't account for capture session stops due to saving error
             completion(true)
         }
 
     }
 
     /// Stop recording all video, and stop the capture session.
-    func stopRecording() {
+    func stopRecording(completion: @escaping (Bool) -> Void) {
         guard videoOutputFront.isRecording else { return }
         guard videoOutputBack.isRecording else { return }
         
-        videoOutputFront.stopRecording()
-        videoOutputBack.stopRecording()
-        captureSession.stopRunning()
+        DispatchQueue.global(qos: .background).async {
+            self.videoOutputFront.stopRecording()
+            self.videoOutputBack.stopRecording()
+            self.captureSession.stopRunning()
+            completion(true)
+        }
     }
 }
 

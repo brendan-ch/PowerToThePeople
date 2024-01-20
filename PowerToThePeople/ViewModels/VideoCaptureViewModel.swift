@@ -38,8 +38,10 @@ class VideoCaptureViewModel: ObservableObject {
     }
     
     func stopRecording() {
-        service.stopRecording()
-        
-        isRecording = service.isRecording
+        service.stopRecording() { [weak self] finished in
+            DispatchQueue.main.async {
+                self?.isRecording = !finished
+            }
+        }
     }
 }
