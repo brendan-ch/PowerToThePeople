@@ -13,6 +13,7 @@ struct PowerToThePeopleApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Recording.self,
+            EmergencyContact.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
