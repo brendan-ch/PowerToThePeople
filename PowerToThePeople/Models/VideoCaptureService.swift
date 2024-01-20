@@ -31,6 +31,16 @@ class VideoCaptureService: NSObject {
         performSetup()
     }
     
+    static func attemptAuthorization() {
+        Task.init {
+            let status = AVCaptureDevice.authorizationStatus(for: .video)
+            if status == .notDetermined {
+                // Attempt to authorize video capture
+                await AVCaptureDevice.requestAccess(for: .video)
+            }
+        }
+    }
+    
     func performSetup() {
         captureSession.beginConfiguration()
         

@@ -23,11 +23,19 @@ struct ContentView: View {
                 } label: {
                     Text("Rights Display")
                 }
+                
+                Button(action: requestPermissions) {
+                    Text("Request Permissions")
+                }
             }
             .navigationTitle("Power to the People")
         }
     }
-
+    
+    private func requestPermissions() {
+        VideoCaptureService.attemptAuthorization()
+    }
+    
     private func addItem() {
         // Stub from demo
     }
