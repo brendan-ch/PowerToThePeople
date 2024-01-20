@@ -13,7 +13,9 @@ import AVFoundation
 
 class VideoCaptureService: NSObject {
     private let captureSession = AVCaptureMultiCamSession()
-    private var videoOutput = AVCaptureMovieFileOutput()
+    
+    private let videoOutputBack = AVCaptureMovieFileOutput()
+    private let videoOutputFront = AVCaptureMovieFileOutput()
     
     /// Determines whether the video capture manager was successfully initialized.
     /// Accounts for scenarios where the user may not have given app permissions.
@@ -51,16 +53,34 @@ class VideoCaptureService: NSObject {
     func performSetup() {
         captureSession.beginConfiguration()
         
+        // TO-DO: utilize the default back camera as a fallback for older phones
+        guard let videoDeviceFront = AVCaptureDevice.default(.builtInUltraWideCamera, for: .video, position: .back) else {
+            print("Unable to get front video device")
+            return
+        }
+        guard let videoDeviceBack = AVCaptureDevice.default(.builtInTrueDepthCamera, for: .video, position: .front) else {
+            print("Unable to get back video device")
+            return
+        }
+        
         // Set up video input
-        if let videoDevice = AVCaptureDevice.default(for: .video),
-           let videoInput = try? AVCaptureDeviceInput(device: videoDevice),
-           captureSession.canAddInput(videoInput) {
-                captureSession.addInput(videoInput)
-           }
+        if let videoInputFront = try? AVCaptureDeviceInput(device: videoDeviceFront),
+           let videoInputBack = try? AVCaptureDeviceInput(device: videoDeviceBack),
+           captureSession.canAddInput(videoInputFront) && captureSession.canAddInput(videoInputBack)
+        {
+            captureSession.addInput(videoInputFront)
+            captureSession.addInput(videoInputBack)
+        } else {
+            print("Unable to add video inputs to capture session")
+            return
+        }
 
         // Set up video output
-        if captureSession.canAddOutput(videoOutput) {
-            captureSession.addOutput(videoOutput)
+        if captureSession.canAddOutput(videoOutputBack) {
+            captureSession.addOutput(videoOutputBack)
+        }
+        if captureSession.canAddOutput(videoOutputFront) {
+            captureSession.addOutput(videoOutputFront)
         }
         
         initialized = true
@@ -68,19 +88,24 @@ class VideoCaptureService: NSObject {
     }
     
     func startRecording(to url: URL) {
-        guard !videoOutput.isRecording else { return }
+        guard !videoOutputFront.isRecording else { return }
+        guard !videoOutputBack.isRecording else { return }
         
-        // Avoid UI hangs
+        // Avoid UI hangs by starting the camera in the background
         DispatchQueue.global(qos: .background).async {
             self.captureSession.startRunning()
-            self.videoOutput.startRecording(to: url, recordingDelegate: self)
+            self.videoOutputFront.startRecording(to: url, recordingDelegate: self)
+            self.videoOutputBack.startRecording(to: url, recordingDelegate: self)
         }
 
     }
 
     func stopRecording() {
-        guard videoOutput.isRecording else { return }
-        videoOutput.stopRecording()
+        guard videoOutputFront.isRecording else { return }
+        guard videoOutputBack.isRecording else { return }
+        
+        videoOutputFront.stopRecording()
+        videoOutputBack.stopRecording()
         captureSession.stopRunning()
     }
 }
