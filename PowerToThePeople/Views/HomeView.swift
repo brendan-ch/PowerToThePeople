@@ -45,15 +45,13 @@ struct HomeView: View {
                 RightsDisplay()
             }
             .toolbar {
-                Button(action: navigateToContacts) {
+                NavigationLink {
+                    ContactsView()
+                } label: {
                     Image(systemName: "gear")
                 }
             }
         }
-    }
-    
-    private func navigateToContacts() {
-        // TO-DO: navigate to emergency contacts page
     }
     
     private func requestPermissions() {
