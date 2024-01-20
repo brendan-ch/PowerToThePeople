@@ -14,7 +14,7 @@ import SwiftData
 // File storage + organization - IN PROGRESS
 // Display video files - NOT STARTED
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
@@ -46,5 +46,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
