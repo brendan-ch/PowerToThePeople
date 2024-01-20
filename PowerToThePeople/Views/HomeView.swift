@@ -11,6 +11,7 @@ import SwiftData
 // TO-DO
 // SwiftData data specs - COMPLETED
 // Front and back recording, permissions - COMPLETED
+// Emergency contacts - IN PROGRESS
 // File storage + organization - IN PROGRESS
 // Display video files - NOT STARTED
 
