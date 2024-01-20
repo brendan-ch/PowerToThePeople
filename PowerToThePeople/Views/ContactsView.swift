@@ -18,6 +18,8 @@ struct ContactsView: View {
                 Section(header: Text("Contact #1")) {
                     TextField("Name", text: .constant(""))
                     TextField("Phone number", text: .constant(""))
+                        .textContentType(.telephoneNumber)
+                        .keyboardType(.phonePad)
                     TextField("Message", text: .constant(""), axis: .vertical)
                         .lineLimit(4, reservesSpace: true)
                 }
@@ -25,6 +27,8 @@ struct ContactsView: View {
                 Section(header: Text("Contact #2")) {
                     TextField("Name", text: .constant(""))
                     TextField("Phone number", text: .constant(""))
+                        .textContentType(.telephoneNumber)
+                        .keyboardType(.phonePad)
                     TextField("Message", text: .constant(""), axis: .vertical)
                         .lineLimit(4, reservesSpace: true)
                 }
