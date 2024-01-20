@@ -15,7 +15,7 @@ final class EmergencyContact {
     let phoneNumber: PhoneNumber
     let message: String
     
-    init(name: String, phoneNumber: PhoneNumber, message: Stsring) {
+    init(name: String, phoneNumber: PhoneNumber, message: String) {
         self.name = name
         self.phoneNumber = phoneNumber
         self.message = message
