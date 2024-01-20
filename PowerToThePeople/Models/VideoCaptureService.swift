@@ -61,12 +61,12 @@ class VideoCaptureService: NSObject {
     }
     
     func startRecording() {
-        captureSession.startRunning()
         guard !videoOutput.isRecording else { return }
         
-        let status = AVCaptureDevice.authorizationStatus(for: .video)
-        print(status.rawValue)
-        print(AVAuthorizationStatus.authorized.rawValue)
+        // Avoid UI hangs
+        DispatchQueue.global(qos: .background).async {
+            self.captureSession.startRunning()
+        }
 
         let outputPath = NSTemporaryDirectory() + "output.mov"
         let outputFileURL = URL(fileURLWithPath: outputPath)
