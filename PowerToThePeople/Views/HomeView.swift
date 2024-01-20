@@ -18,6 +18,14 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                ZStack {
+                    Circle()
+                        .frame(width: 200, height: 200)
+                        .foregroundStyle(Color.blue)
+                    Text("Hold to activate")
+                        .foregroundStyle(Color.white)
+                }
+                
                 NavigationLink {
                     RightsDisplay()
                 } label: {
@@ -28,7 +36,6 @@ struct HomeView: View {
                     Text("Request Permissions")
                 }
             }
-            .navigationTitle("Power to the People")
         }
     }
     
