@@ -15,6 +15,8 @@ import SwiftData
 // Display video files - NOT STARTED
 
 struct HomeView: View {
+    @State private var isTapped = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -22,14 +24,13 @@ struct HomeView: View {
                     Circle()
                         .frame(width: 200, height: 200)
                         .foregroundStyle(Color.blue)
-                    Text("Hold to activate")
+                        .onLongPressGesture(minimumDuration: 2.0, maximumDistance: 100) {
+                            print("Activated")
+                        } onPressingChanged: { inProgress in
+                            isTapped = inProgress
+                        }
+                    Text(isTapped ? "Keep holding..." : "Hold to activate")
                         .foregroundStyle(Color.white)
-                }
-                
-                NavigationLink {
-                    RightsDisplay()
-                } label: {
-                    Text("Rights Display")
                 }
                 
                 Button(action: requestPermissions) {
