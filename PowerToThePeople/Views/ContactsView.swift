@@ -16,6 +16,8 @@ struct ContactsView: View {
     @Query var contacts: [EmergencyContact]
     @Environment(\.modelContext) var modelContext
     
+    @State private var contactViewPresented = false
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             List {
@@ -34,6 +36,9 @@ struct ContactsView: View {
         }
         .navigationTitle("Emergency Contacts")
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .navigationDestination(isPresented: $contactViewPresented) {
+            ContactView(contact: contacts[contacts.count - 1])
+        }
     }
     
     func addContact() {
@@ -41,6 +46,7 @@ struct ContactsView: View {
             let newContact = EmergencyContact(name: "", message: "")
             
             modelContext.insert(newContact)
+            contactViewPresented = true
         }
     }
 }
