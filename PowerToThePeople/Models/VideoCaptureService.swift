@@ -8,6 +8,9 @@
 import Foundation
 import AVFoundation
 
+// TO-DO: ensure both cameras are recording
+// by inspecting output files
+
 class VideoCaptureService: NSObject {
     private let captureSession = AVCaptureMultiCamSession()
     private var videoOutput = AVCaptureMovieFileOutput()
@@ -26,8 +29,6 @@ class VideoCaptureService: NSObject {
         return isAuthorized
     }
     
-    // TO-DO: figure out why this property isn't computing correctly
-    // I have no idea why
     var isRecording: Bool {
         return captureSession.isRunning
     }
