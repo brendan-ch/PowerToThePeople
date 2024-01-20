@@ -27,7 +27,6 @@
 		206AF7F12B5B9DC1008DA2DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		206AF7F92B5BA35F008DA2DC /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsDisplay.swift; sourceTree = "<group>"; };
-		206AF7FE2B5BAE45008DA2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +74,6 @@
 				206AF7EA2B5B9DBF008DA2DC /* ContentView.swift */,
 				206AF7EE2B5B9DC1008DA2DC /* Assets.xcassets */,
 				206AF7F02B5B9DC1008DA2DC /* Preview Content */,
-				206AF7FE2B5BAE45008DA2DC /* Info.plist */,
 			);
 			path = PowerToThePeople;
 			sourceTree = "<group>";
@@ -317,6 +315,8 @@
 				DEVELOPMENT_TEAM = 4A9XHUS87Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app uses front and back cameras to record interactions with police.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses the microphone to record interactions with police.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,6 +346,8 @@
 				DEVELOPMENT_TEAM = 4A9XHUS87Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The app uses front and back cameras to record interactions with police.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses the microphone to record interactions with police.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
