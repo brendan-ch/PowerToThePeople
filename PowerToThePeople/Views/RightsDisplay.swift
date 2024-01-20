@@ -26,11 +26,19 @@ struct RightsDisplay: View {
     }
     
     var body: some View {
-        Button(action: toggleRecording) {
-            if videoCaptureViewModel.isRecording {
-                Text("Stop Recording")
-            } else {
-                Text("Start Recording")
+        VStack {
+            VStack(alignment: .leading) {
+                Text("Know Your Rights")
+            }
+            .navigationTitle("Know Your Rights")
+            .navigationBarTitleDisplayMode(.large)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .toolbar {
+            Button(action: toggleRecording) {
+                Text(videoCaptureViewModel.isRecording ? "Pause Recording" : "Resume Recording")
             }
         }
     }
