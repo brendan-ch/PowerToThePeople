@@ -36,9 +36,6 @@ struct HomeView: View {
                         .foregroundStyle(Color.white)
                 }
                 
-                Button(action: requestPermissions) {
-                    Text("Request Permissions (testing)")
-                }
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
