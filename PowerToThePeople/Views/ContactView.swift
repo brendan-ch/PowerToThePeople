@@ -15,7 +15,7 @@ struct ContactView: View {
         Form {
             Section(header: Text("Contact")) {
                 TextField("Name", text: $contact.name)
-                TextField("Phone number", text: .constant(""))
+                TextField("Phone number", text: $contact.phoneNumber)
                     .textContentType(.telephoneNumber)
                     .keyboardType(.phonePad)
                 TextField("Message", text: $contact.message, axis: .vertical)
@@ -26,5 +26,5 @@ struct ContactView: View {
 }
 
 #Preview {
-    ContactView(contact: EmergencyContact(name: "Test Contact", message: "Test Message"))
+    ContactView(contact: EmergencyContact(name: "Test Contact", phoneNumber: "", message: "Test Message"))
 }

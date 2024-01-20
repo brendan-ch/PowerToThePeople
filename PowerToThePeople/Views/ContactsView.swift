@@ -47,7 +47,7 @@ struct ContactsView: View {
     
     func addContact() {
         withAnimation {
-            let newContact = EmergencyContact(name: "", message: "")
+            let newContact = EmergencyContact(name: "", phoneNumber: "", message: "")
             
             modelContext.insert(newContact)
             contactViewPresented = true
