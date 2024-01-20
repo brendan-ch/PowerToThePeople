@@ -26,6 +26,10 @@ class VideoCaptureService: NSObject {
         return isAuthorized
     }
     
+    var isRecording: Bool {
+        return videoOutput.isRecording
+    }
+    
     override init() {
         super.init()
         performSetup()
@@ -60,17 +64,15 @@ class VideoCaptureService: NSObject {
         captureSession.commitConfiguration()
     }
     
-    func startRecording() {
+    func startRecording(to url: URL) {
         guard !videoOutput.isRecording else { return }
         
         // Avoid UI hangs
         DispatchQueue.global(qos: .background).async {
             self.captureSession.startRunning()
+            self.videoOutput.startRecording(to: url, recordingDelegate: self)
         }
 
-        let outputPath = NSTemporaryDirectory() + "output.mov"
-        let outputFileURL = URL(fileURLWithPath: outputPath)
-        videoOutput.startRecording(to: outputFileURL, recordingDelegate: self)
     }
 
     func stopRecording() {

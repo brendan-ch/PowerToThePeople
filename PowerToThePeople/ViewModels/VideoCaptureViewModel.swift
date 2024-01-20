@@ -16,15 +16,15 @@ class VideoCaptureViewModel: ObservableObject {
     
     func startRecording(to url: URL) {
         // TO-DO: implement URL passing in service
-        service.startRecording()
+        service.startRecording(to: url)
         
         // TO-DO: read the property from the service
-        isRecording = true
+        isRecording = service.isRecording
     }
     
     func stopRecording() {
         service.stopRecording()
         
-        isRecording = false
+        isRecording = service.isRecording
     }
 }

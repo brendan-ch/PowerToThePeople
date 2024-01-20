@@ -17,7 +17,12 @@ struct RightsDisplay: View {
     
     func toggleRecording() {
         print("Recording toggled")
-        videoCaptureViewModel.startRecording(to: URL.documentsDirectory.appendingPathComponent("something.mov"))
+        
+        if videoCaptureViewModel.isRecording {
+            videoCaptureViewModel.stopRecording()
+        } else {
+            videoCaptureViewModel.startRecording(to: URL.documentsDirectory.appendingPathComponent("something.mov"))
+        }
     }
     
     var body: some View {
