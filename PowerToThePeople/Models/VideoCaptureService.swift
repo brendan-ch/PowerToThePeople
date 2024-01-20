@@ -12,9 +12,13 @@ import AVFoundation
 // by inspecting output files
 
 class VideoCaptureService: NSObject {
+    /// Capture session for both cameras and the microphone.
     private let captureSession = AVCaptureMultiCamSession()
     
+    /// The video output for the back camera.
     private let videoOutputBack = AVCaptureMovieFileOutput()
+    
+    /// The video output for the front camera.
     private let videoOutputFront = AVCaptureMovieFileOutput()
     
     /// Determines whether the video capture manager was successfully initialized.
@@ -31,6 +35,7 @@ class VideoCaptureService: NSObject {
         return isAuthorized
     }
     
+    /// Indicates whether the capture session is running.
     var isRecording: Bool {
         return captureSession.isRunning
     }
@@ -40,6 +45,7 @@ class VideoCaptureService: NSObject {
         performSetup()
     }
     
+    /// Attempt to request authorization for the camera.
     static func attemptAuthorization() {
         Task.init {
             let status = AVCaptureDevice.authorizationStatus(for: .video)
@@ -50,6 +56,7 @@ class VideoCaptureService: NSObject {
         }
     }
     
+    /// Perform video capture setup for the front and back cameras.
     func performSetup() {
         captureSession.beginConfiguration()
         
@@ -88,7 +95,8 @@ class VideoCaptureService: NSObject {
     }
     
     /// Start recording video.
-    /// @param toFolder The folder URL to write to. Folder must be empty and created before calling this method.
+    /// @param toFront The URL to write to for the front camera.
+    /// @param toBack the URL to write to for the back camera.
     func startRecording(toFront videoUrlFront: URL, toBack videoUrlBack: URL) {
         guard !videoOutputFront.isRecording else { return }
         guard !videoOutputBack.isRecording else { return }
@@ -102,6 +110,7 @@ class VideoCaptureService: NSObject {
 
     }
 
+    /// Stop recording all video, and stop the capture session.
     func stopRecording() {
         guard videoOutputFront.isRecording else { return }
         guard videoOutputBack.isRecording else { return }
