@@ -11,6 +11,7 @@ import SwiftUI
 
 /// View for editing emergency contacts.
 struct ContactsView: View {
+    let maximumNumberOfContacts = 5
 
     @Query var contacts: [EmergencyContact]
     @Environment(\.modelContext) var modelContext
@@ -30,8 +31,9 @@ struct ContactsView: View {
                 .onDelete(perform: deleteContacts)
                 
                 Button(action: addContact) {
-                    Text("Add Emergency Contact")
+                    Text("Add Emergency Contact (\(maximumNumberOfContacts - contacts.count)/\(maximumNumberOfContacts) remaining)")
                 }
+                .disabled(contacts.count >= maximumNumberOfContacts)
             }
             
         }
