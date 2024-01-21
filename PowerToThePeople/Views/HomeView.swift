@@ -26,7 +26,6 @@ struct HomeView: View {
     @State private var isActivated = false
     
     var body: some View {
-        NavigationStack {
             VStack {
                 Spacer()
                 ZStack {
@@ -72,7 +71,6 @@ struct HomeView: View {
                         Image(systemName: "person.circle")
                     }
                 }
-            }
         }
     }
     
