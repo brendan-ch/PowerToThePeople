@@ -22,7 +22,8 @@ struct VideoView: View {
             }
         }
         .onAppear {
-            videoPlayer = AVPlayer(url: videoUrl)
+            let playerItem = AVPlayerItem(url: videoUrl)
+            videoPlayer = AVPlayer(playerItem: playerItem)
         }
         .ignoresSafeArea()
         .backgroundStyle(.black)
