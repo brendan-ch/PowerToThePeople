@@ -26,7 +26,13 @@ struct PowerToThePeopleApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            let setupCompleted = UserDefaults.standard.bool(forKey: "setupCompleted")
+            
+            if setupCompleted {
+                HomeView()
+            } else {
+                IntroductionView()
+            }
         }
         .modelContainer(sharedModelContainer)
     }
