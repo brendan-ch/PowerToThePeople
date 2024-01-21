@@ -124,6 +124,9 @@ struct RightsDisplay: View {
                 }
             }
         }
+        .onAppear {
+            videoCaptureModel.startRecording()
+        }
     }
 }
 
