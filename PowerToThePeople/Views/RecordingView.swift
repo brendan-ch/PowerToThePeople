@@ -43,8 +43,10 @@ struct RecordingView: View {
             Spacer()
         }
         .onAppear {
-            frontThumbnail = generateThumbnail(path: recording.frontCameraFile)
-            backThumbnail = generateThumbnail(path: recording.backCameraFile)
+            withAnimation {
+                backThumbnail = generateThumbnail(path: recording.backCameraFile)
+                frontThumbnail = generateThumbnail(path: recording.frontCameraFile)
+            }
         }
     }
     

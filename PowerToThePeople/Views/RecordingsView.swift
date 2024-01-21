@@ -16,7 +16,11 @@ struct RecordingsView: View {
     var body: some View {
         List {
             ForEach(recordings) { recording in
-                Text(recording.timestampEndedString)
+                NavigationLink {
+                    RecordingView(recording: recording)
+                } label: {
+                    Text(recording.timestampEndedString)
+                }
             }
         }
         .navigationTitle("Past Recordings")
