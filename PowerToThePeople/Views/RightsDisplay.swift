@@ -30,6 +30,9 @@ struct RightsDisplay: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
+                Text("Know your rights when being pulled over or confronted by a police officer.")
+                    .padding()
+                
                 GroupBox(label:
                     Label("You can...", systemImage: "checkmark")
                 ) {
