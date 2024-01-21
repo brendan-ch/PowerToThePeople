@@ -41,17 +41,9 @@ struct PermissionsView: View {
 //                .padding(.vertical)
 
                 Spacer()
-                Button {
+                SetupButton(text: "Continue", action: {
                     contactsViewPresented = true
-                } label: {
-                    Text("Continue")
-                        .fontWeight(.bold)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
+                }, disabled: !cameraPermissionGranted)
                 .padding(.horizontal)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
