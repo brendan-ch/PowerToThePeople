@@ -96,7 +96,8 @@ struct RightsDisplay: View {
                     videoCaptureModel.stopRecording()
                     dismiss()
                 } label: {
-                    Text("Exit")
+                    Text("Stop Recording and Exit")
+                        .foregroundStyle(Color.red)
                 }
             }
             
@@ -118,11 +119,11 @@ struct RightsDisplay: View {
                 }
             }
             
-            ToolbarItem(placement: .topBarTrailing) {
-                Button(action: toggleRecording) {
-                    Text(videoCaptureModel.isRecording ? "Pause Recording" : "Resume Recording")
-                }
-            }
+//            ToolbarItem(placement: .topBarTrailing) {
+//                Button(action: toggleRecording) {
+//                    Text(videoCaptureModel.isRecording ? "Pause Recording" : "Resume Recording")
+//                }
+//            }
         }
         .onAppear {
             videoCaptureModel.startRecording()
