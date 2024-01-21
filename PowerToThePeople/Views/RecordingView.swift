@@ -48,7 +48,7 @@ struct RecordingView: View {
                             }
                     }
                 }
-                .frame(maxWidth: .infinity, maxHeight: 500)
+                .frame(maxWidth: .infinity, minHeight: 500)
                 .padding()
                 .sheet(isPresented: $frontThumbnailVideoPresented) {
                     VideoView(videoUrl: recording.frontCameraFile)
