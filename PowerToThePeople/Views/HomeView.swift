@@ -58,10 +58,19 @@ struct HomeView: View {
                 RightsDisplay(startRecordingOnAppear: true)
             }
             .toolbar {
-                NavigationLink {
-                    ContactsView()
-                } label: {
-                    Image(systemName: "gear")
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink {
+                        RecordingsView()
+                    } label: {
+                        Text("Past Recordings")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        ContactsView()
+                    } label: {
+                        Image(systemName: "person.circle")
+                    }
                 }
             }
         }

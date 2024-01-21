@@ -15,6 +15,7 @@
 		206AF7F22B5B9DC1008DA2DC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206AF7F12B5B9DC1008DA2DC /* Preview Assets.xcassets */; };
 		206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7F92B5BA35F008DA2DC /* Recording.swift */; };
 		206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */; };
+		20A440AA2B5CAFC300B4FA66 /* RecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */; };
 		20EFB49B2B5C73AB00C772C4 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */; };
 		20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */; };
 		20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */; };
@@ -30,6 +31,7 @@
 		206AF7F12B5B9DC1008DA2DC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		206AF7F92B5BA35F008DA2DC /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsDisplay.swift; sourceTree = "<group>"; };
+		20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsView.swift; sourceTree = "<group>"; };
 		20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */,
 				20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */,
 				20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */,
+				20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A440AA2B5CAFC300B4FA66 /* RecordingsView.swift in Sources */,
 				206AF7EB2B5B9DBF008DA2DC /* HomeView.swift in Sources */,
 				206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */,
 				20187A4C2B5BB9DE009D98EF /* VideoCaptureService.swift in Sources */,
