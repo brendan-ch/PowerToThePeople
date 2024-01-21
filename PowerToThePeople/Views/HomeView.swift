@@ -53,6 +53,7 @@ struct HomeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .background(isTapped ? Color.blue : nil)
             .ignoresSafeArea()
+            .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $isActivated) {
                 RightsDisplay(startRecordingOnAppear: true)
             }
