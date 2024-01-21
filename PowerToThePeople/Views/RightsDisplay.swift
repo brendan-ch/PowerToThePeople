@@ -14,8 +14,15 @@ import AVFoundation
 
 struct RightsDisplay: View {
     @Environment(\.dismiss) var dismiss
+    @State private var circleOpacity = 1.0
     
     @StateObject private var videoCaptureModel: VideoCaptureModel = VideoCaptureModel()
+    
+    var repeatingAnimation: Animation {
+            Animation
+                .easeInOut(duration: 2) //.easeIn, .easyOut, .linear, etc...
+                .repeatForever()
+        }
     
     func toggleRecording() {
         print("Recording toggled")
@@ -92,6 +99,25 @@ struct RightsDisplay: View {
                     Text("Exit")
                 }
             }
+            
+            if videoCaptureModel.isRecording {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Circle()
+                        .frame(width: 12, height: 12)
+                        .foregroundStyle(.green)
+                        .opacity(circleOpacity)
+                        .onAppear {
+                            withAnimation(repeatingAnimation) {
+                                if self.circleOpacity == 1.0 {
+                                    self.circleOpacity = 0.4
+                                } else {
+                                    self.circleOpacity = 1.0
+                                }
+                            }
+                        }
+                }
+            }
+            
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: toggleRecording) {
                     Text(videoCaptureModel.isRecording ? "Pause Recording" : "Resume Recording")
