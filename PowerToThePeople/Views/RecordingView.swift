@@ -13,9 +13,11 @@ import AVKit
 struct RecordingView: View {
     let recording: Recording
     
-    // TO-DO: generate the thumbnails
     @State private var frontThumbnail: UIImage?
     @State private var backThumbnail: UIImage?
+    
+    @State private var backThumbnailVideoPresented = false
+    @State private var frontThumbnailVideoPresented = false
     
     var body: some View {
         VStack {
@@ -26,6 +28,9 @@ struct RecordingView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity, maxHeight: 500)
                         .clipped()
+                        .onTapGesture {
+                            backThumbnailVideoPresented = true
+                        }
                 }
                 
                 if frontThumbnail != nil {
@@ -35,10 +40,20 @@ struct RecordingView: View {
                         .frame(maxWidth: 128, maxHeight: 200)
                         .clipped()
                         .position(x: 80, y: 374)
+                        .onTapGesture {
+                            frontThumbnailVideoPresented = true
+                        }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: 500)
             .padding()
+            .sheet(isPresented: $frontThumbnailVideoPresented) {
+                VideoView(videoUrl: recording.frontCameraFile)
+            }
+            .sheet(isPresented: $backThumbnailVideoPresented) {
+                VideoView(videoUrl: recording.backCameraFile)
+            }
+            
             Text("TO-DO: info + video playback")
             Spacer()
         }
@@ -48,6 +63,7 @@ struct RecordingView: View {
                 frontThumbnail = generateThumbnail(path: recording.frontCameraFile)
             }
         }
+        
     }
     
     private func generateThumbnail(path: URL) -> UIImage? {
