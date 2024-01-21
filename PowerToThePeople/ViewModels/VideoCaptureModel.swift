@@ -14,6 +14,11 @@ class VideoCaptureModel: ObservableObject {
     @Published var isRecording = false
     @Published var error: Error?
     
+    /// Time the video started recording.
+    private var timeStarted: Date?
+    private var backCameraFile: URL?
+    private var frontCameraFile: URL?
+    
     /// Create video directory, start recording the video, and update the state.
     func startRecording() {
         // Create a new folder with the current timestamp
@@ -22,12 +27,17 @@ class VideoCaptureModel: ObservableObject {
         let now = Date.now
         let dateStr = dateFormatter.string(from: now)
         
+        timeStarted = now
+        
         let saveDirectory = URL.documentsDirectory.appendingPathComponent(dateStr)
         
         do {
             try FileManager.default.createDirectory(at: saveDirectory, withIntermediateDirectories: true)
             
-            service.startRecording(toFront: saveDirectory.appendingPathComponent("front.mov"), toBack: saveDirectory.appendingPathComponent("back.mov")) { [weak self] started in
+            backCameraFile = saveDirectory.appendingPathComponent("back.mov")
+            frontCameraFile = saveDirectory.appendingPathComponent("front.mov")
+            
+            service.startRecording(toFront: frontCameraFile!, toBack: backCameraFile!) { [weak self] started in
                 // Use completion handler to update state
                 DispatchQueue.main.async {
                     self?.isRecording = started
@@ -39,11 +49,20 @@ class VideoCaptureModel: ObservableObject {
     }
     
     /// Stop the recording and update the state.
-    func stopRecording() {
+    /// Returns a Recording object which can be saved to SwiftData.
+    func stopRecording() -> Recording? {
         service.stopRecording() { [weak self] finished in
             DispatchQueue.main.async {
                 self?.isRecording = !finished
             }
         }
+        
+        guard backCameraFile != nil, frontCameraFile != nil, timeStarted != nil else {
+            print("Couldn't save recording; parameter missing")
+            return nil
+        }
+        
+        let recording = Recording(backCameraFile: backCameraFile!, frontCameraFile: frontCameraFile!, timestampStarted: timeStarted!, timestampEnded: Date.now, notes: "")
+        return recording
     }
 }
