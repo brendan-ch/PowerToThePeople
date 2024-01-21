@@ -21,6 +21,10 @@ class VideoCaptureModel: ObservableObject {
     
     /// Create video directory, start recording the video, and update the state.
     func startRecording() {
+        timeStarted = nil
+        backCameraFile = nil
+        frontCameraFile = nil
+        
         // Create a new folder with the current timestamp
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY.MM.DD HH.mm.ss"
