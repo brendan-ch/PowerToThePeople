@@ -20,44 +20,48 @@ struct RecordingView: View {
     @State private var frontThumbnailVideoPresented = false
     
     var body: some View {
-        VStack {
-            ZStack {
-                if backThumbnail != nil {
-                    Image(uiImage: backThumbnail!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity, maxHeight: 500)
-                        .clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                        .onTapGesture {
-                            backThumbnailVideoPresented = true
-                        }
+        ScrollView {
+            VStack(alignment: .center) {
+                ZStack {
+                    if backThumbnail != nil {
+                        Image(uiImage: backThumbnail!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: .infinity, maxHeight: 500)
+                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .onTapGesture {
+                                backThumbnailVideoPresented = true
+                            }
+                    }
+                    
+                    if frontThumbnail != nil {
+                        Image(uiImage: frontThumbnail!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: 128, maxHeight: 200)
+                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .position(x: 80, y: 374)
+                            .onTapGesture {
+                                frontThumbnailVideoPresented = true
+                            }
+                    }
+                }
+                .frame(maxWidth: .infinity, maxHeight: 500)
+                .padding()
+                .sheet(isPresented: $frontThumbnailVideoPresented) {
+                    VideoView(videoUrl: recording.frontCameraFile)
+                }
+                .sheet(isPresented: $backThumbnailVideoPresented) {
+                    VideoView(videoUrl: recording.backCameraFile)
                 }
                 
-                if frontThumbnail != nil {
-                    Image(uiImage: frontThumbnail!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: 128, maxHeight: 200)
-                        .clipped()
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                        .position(x: 80, y: 374)
-                        .onTapGesture {
-                            frontThumbnailVideoPresented = true
-                        }
-                }
+                Text("Recorded \(recording.timestampEndedString)")
+                    .foregroundStyle(.secondary)
+                
+                Spacer()
             }
-            .frame(maxWidth: .infinity, maxHeight: 500)
-            .padding()
-            .sheet(isPresented: $frontThumbnailVideoPresented) {
-                VideoView(videoUrl: recording.frontCameraFile)
-            }
-            .sheet(isPresented: $backThumbnailVideoPresented) {
-                VideoView(videoUrl: recording.backCameraFile)
-            }
-            
-            Text("TO-DO: info + video playback")
-            Spacer()
         }
         .onAppear {
             withAnimation {
