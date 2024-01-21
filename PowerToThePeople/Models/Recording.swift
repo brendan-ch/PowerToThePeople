@@ -25,7 +25,7 @@ final class Recording {
     
     var timestampEndedString: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY.MM.DD HH.mm.ss"
+        dateFormatter.dateFormat = "YYYY.MM.DD HH:mm:ss"
         
         return dateFormatter.string(from: timestampEnded)
     }
