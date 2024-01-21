@@ -13,6 +13,8 @@ import AVFoundation
 // This is just a placeholder for the camera stuff
 
 struct RightsDisplay: View {
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject private var videoCaptureModel: VideoCaptureModel = VideoCaptureModel()
     
     func toggleRecording() {
@@ -72,13 +74,25 @@ struct RightsDisplay: View {
                 Spacer()
             }
             .navigationTitle("Know Your Rights")
+            .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.large)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .toolbar {
-            Button(action: toggleRecording) {
-                Text(videoCaptureModel.isRecording ? "Pause Recording" : "Resume Recording")
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    // Save the video and exit the view
+                    videoCaptureModel.stopRecording()
+                    dismiss()
+                } label: {
+                    Text("Exit")
+                }
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                Button(action: toggleRecording) {
+                    Text(videoCaptureModel.isRecording ? "Pause Recording" : "Resume Recording")
+                }
             }
         }
     }
