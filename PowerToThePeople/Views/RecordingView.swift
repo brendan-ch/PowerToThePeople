@@ -28,6 +28,7 @@ struct RecordingView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity, maxHeight: 500)
                         .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                         .onTapGesture {
                             backThumbnailVideoPresented = true
                         }
@@ -39,6 +40,7 @@ struct RecordingView: View {
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: 128, maxHeight: 200)
                         .clipped()
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
                         .position(x: 80, y: 374)
                         .onTapGesture {
                             frontThumbnailVideoPresented = true
