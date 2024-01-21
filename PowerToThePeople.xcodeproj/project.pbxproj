@@ -16,6 +16,9 @@
 		206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7F92B5BA35F008DA2DC /* Recording.swift */; };
 		206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */; };
 		20A440AA2B5CAFC300B4FA66 /* RecordingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */; };
+		20A440AC2B5CB37A00B4FA66 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A440AB2B5CB37A00B4FA66 /* RecordingView.swift */; };
+		20A440B02B5CB64800B4FA66 /* back.mov in Resources */ = {isa = PBXBuildFile; fileRef = 20A440AE2B5CB64800B4FA66 /* back.mov */; };
+		20A440B12B5CB64800B4FA66 /* front.mov in Resources */ = {isa = PBXBuildFile; fileRef = 20A440AF2B5CB64800B4FA66 /* front.mov */; };
 		20EFB49B2B5C73AB00C772C4 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */; };
 		20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */; };
 		20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */; };
@@ -32,6 +35,9 @@
 		206AF7F92B5BA35F008DA2DC /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		206AF7FC2B5BA817008DA2DC /* RightsDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightsDisplay.swift; sourceTree = "<group>"; };
 		20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsView.swift; sourceTree = "<group>"; };
+		20A440AB2B5CB37A00B4FA66 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		20A440AE2B5CB64800B4FA66 /* back.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = back.mov; sourceTree = "<group>"; };
+		20A440AF2B5CB64800B4FA66 /* front.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = front.mov; sourceTree = "<group>"; };
 		20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -75,6 +81,7 @@
 		206AF7E72B5B9DBF008DA2DC /* PowerToThePeople */ = {
 			isa = PBXGroup;
 			children = (
+				20A440AD2B5CB63600B4FA66 /* SampleAssets */,
 				20187A4A2B5BB830009D98EF /* ViewModels */,
 				206AF7FB2B5BA806008DA2DC /* Views */,
 				206AF7F82B5BA347008DA2DC /* Models */,
@@ -111,8 +118,18 @@
 				20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */,
 				20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */,
 				20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */,
+				20A440AB2B5CB37A00B4FA66 /* RecordingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		20A440AD2B5CB63600B4FA66 /* SampleAssets */ = {
+			isa = PBXGroup;
+			children = (
+				20A440AE2B5CB64800B4FA66 /* back.mov */,
+				20A440AF2B5CB64800B4FA66 /* front.mov */,
+			);
+			path = SampleAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,7 +194,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20A440B02B5CB64800B4FA66 /* back.mov in Resources */,
 				206AF7F22B5B9DC1008DA2DC /* Preview Assets.xcassets in Resources */,
+				20A440B12B5CB64800B4FA66 /* front.mov in Resources */,
 				206AF7EF2B5B9DC1008DA2DC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +215,7 @@
 				20187A4E2B5BBA85009D98EF /* VideoCaptureModel.swift in Sources */,
 				20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */,
 				20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */,
+				20A440AC2B5CB37A00B4FA66 /* RecordingView.swift in Sources */,
 				206AF7E92B5B9DBF008DA2DC /* PowerToThePeopleApp.swift in Sources */,
 				206AF7FA2B5BA35F008DA2DC /* Recording.swift in Sources */,
 				20EFB49B2B5C73AB00C772C4 /* ContactsView.swift in Sources */,
