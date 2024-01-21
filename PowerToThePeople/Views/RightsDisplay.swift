@@ -37,7 +37,7 @@ struct RightsDisplay: View {
     }
     
     var body: some View {
-        VStack {
+        ScrollView {
             VStack(alignment: .leading) {
                 Text("Know your rights when being pulled over or confronted by a police officer.")
                     .padding()
