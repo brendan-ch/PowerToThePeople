@@ -20,7 +20,7 @@ struct SetupButton: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .padding()
                 .foregroundColor(.white)
-                .background(Color.blue)
+                .background((disabled ?? false) ? Color.secondary : Color.blue)
                 .cornerRadius(10)
         }
         .disabled(disabled ?? false)
