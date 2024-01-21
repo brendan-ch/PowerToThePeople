@@ -12,6 +12,7 @@ import SwiftData
 /// View which displays all past recordings.
 struct RecordingsView: View {
     @Query var recordings: [Recording]
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         List {
@@ -22,9 +23,29 @@ struct RecordingsView: View {
                     Text(recording.timestampEndedString)
                 }
             }
+            .onDelete(perform: deleteRecording)
         }
         .navigationTitle("Past Recordings")
         .navigationBarTitleDisplayMode(.large)
+    }
+    
+    func deleteRecording(_ indexSet: IndexSet) {
+        for index in indexSet {
+            let recording = recordings[index]
+            
+            defer {
+                // Otherwise, fail silently
+                modelContext.delete(recording)
+            }
+            
+            // Attempt to delete the recordings from the filesystem
+            do {
+                try FileManager.default.removeItem(at: recording.backCameraFile)
+                try FileManager.default.removeItem(at: recording.frontCameraFile)
+            } catch {
+                print("Unable to delete recording: \(error)")
+            }
+        }
     }
 }
 
