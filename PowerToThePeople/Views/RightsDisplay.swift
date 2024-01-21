@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-import AVFoundation
+import SwiftData
 
 // TO-DO: write out the actual rights display data
 // This is just a placeholder for the camera stuff
@@ -20,17 +20,26 @@ struct RightsDisplay: View {
     
     @StateObject private var videoCaptureModel: VideoCaptureModel = VideoCaptureModel()
     
+    @Environment(\.modelContext) var modelContext
+    
     var repeatingAnimation: Animation {
             Animation
                 .easeInOut(duration: 2) //.easeIn, .easyOut, .linear, etc...
                 .repeatForever()
         }
     
+    func saveAndStopRecording() {
+        let recording = videoCaptureModel.stopRecording()
+        if recording != nil {
+            modelContext.insert(recording!)
+        }
+    }
+    
     func toggleRecording() {
         print("Recording toggled")
         
         if videoCaptureModel.isRecording {
-            videoCaptureModel.stopRecording()
+            saveAndStopRecording()
         } else {
             videoCaptureModel.startRecording()
         }
@@ -96,7 +105,7 @@ struct RightsDisplay: View {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         // Save the video and exit the view
-                        videoCaptureModel.stopRecording()
+                        saveAndStopRecording()
                         dismiss()
                     } label: {
                         Text("Stop Recording and Exit")
@@ -142,5 +151,13 @@ struct RightsDisplay: View {
 }
 
 #Preview {
-    RightsDisplay(startRecordingOnAppear: false)
+    let schema = Schema([
+        Recording.self,
+    ])
+    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+
+    let modelContainer = try! ModelContainer(for: schema, configurations: [modelConfiguration])
+    
+    return RightsDisplay(startRecordingOnAppear: false)
+        .modelContainer(modelContainer)
 }
