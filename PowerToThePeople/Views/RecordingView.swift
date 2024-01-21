@@ -69,6 +69,20 @@ struct RecordingView: View {
                 frontThumbnail = generateThumbnail(path: recording.frontCameraFile)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    ShareLink(item: recording.frontCameraFile) {
+                        Text("Front camera video")
+                    }
+                    ShareLink(item: recording.backCameraFile) {
+                        Text("Back camera video")
+                    }
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
+        }
         
     }
     
