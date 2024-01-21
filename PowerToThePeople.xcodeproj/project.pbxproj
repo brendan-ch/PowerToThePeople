@@ -332,6 +332,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "The app uses front and back cameras to record interactions with police.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "If enabled, the app will associate your location with video recordings.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses the microphone to record interactions with police.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -363,6 +364,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "The app uses front and back cameras to record interactions with police.";
+				INFOPLIST_KEY_NSLocationUsageDescription = "If enabled, the app will associate your location with video recordings.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "The app uses the microphone to record interactions with police.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
