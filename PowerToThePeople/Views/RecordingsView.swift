@@ -11,9 +11,13 @@ import SwiftData
 
 /// View which displays all past recordings.
 struct RecordingsView: View {
+    @Query var recordings: [Recording]
+    
     var body: some View {
         List {
-            Text("Hello")
+            ForEach(recordings) { recording in
+                Text(recording.timestampEndedString)
+            }
         }
         .navigationTitle("Past Recordings")
         .navigationBarTitleDisplayMode(.large)
