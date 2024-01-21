@@ -13,15 +13,15 @@ import AVFoundation
 // This is just a placeholder for the camera stuff
 
 struct RightsDisplay: View {
-    @StateObject private var videoCaptureViewModel: VideoCaptureViewModel = VideoCaptureViewModel()
+    @StateObject private var videoCaptureModel: VideoCaptureModel = VideoCaptureModel()
     
     func toggleRecording() {
         print("Recording toggled")
         
-        if videoCaptureViewModel.isRecording {
-            videoCaptureViewModel.stopRecording()
+        if videoCaptureModel.isRecording {
+            videoCaptureModel.stopRecording()
         } else {
-            videoCaptureViewModel.startRecording()
+            videoCaptureModel.startRecording()
         }
     }
     
@@ -78,7 +78,7 @@ struct RightsDisplay: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .toolbar {
             Button(action: toggleRecording) {
-                Text(videoCaptureViewModel.isRecording ? "Pause Recording" : "Resume Recording")
+                Text(videoCaptureModel.isRecording ? "Pause Recording" : "Resume Recording")
             }
         }
     }

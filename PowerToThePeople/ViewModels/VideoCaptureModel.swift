@@ -8,7 +8,7 @@
 import Foundation
 
 /// View model which exposes isRecording and error messages to observers.
-class VideoCaptureViewModel: ObservableObject {
+class VideoCaptureModel: ObservableObject {
     private let service: VideoCaptureService = VideoCaptureService()
     
     @Published var isRecording = false
