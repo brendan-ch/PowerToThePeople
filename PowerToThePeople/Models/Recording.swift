@@ -23,6 +23,13 @@ final class Recording {
     /// The timestamp that the recording was ended.
     let timestampEnded: Date
     
+    var timestampEndedString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY.MM.DD HH.mm.ss"
+        
+        return dateFormatter.string(from: timestampEnded)
+    }
+    
     /// Latitude of the location that the recording was taken.
     let locationLatitude: Int32?
     
