@@ -10,6 +10,8 @@ import SwiftUI
 
 /// View for setting up user permissions.
 struct PermissionsView: View {
+    @State private var contactsViewPresented = false
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 8) {
@@ -37,7 +39,9 @@ struct PermissionsView: View {
                 .padding(.vertical)
 
                 Spacer()
-                Button {} label: {
+                Button {
+                    contactsViewPresented = true
+                } label: {
                     Text("Continue")
                         .fontWeight(.bold)
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -49,6 +53,9 @@ struct PermissionsView: View {
                 .padding(.horizontal)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }
+        .navigationDestination(isPresented: $contactsViewPresented) {
+            ContactsSetup()
         }
         
     }
