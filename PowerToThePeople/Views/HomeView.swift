@@ -11,9 +11,10 @@ import SwiftData
 // TO-DO
 // SwiftData data specs - COMPLETED
 // Front and back recording, permissions - COMPLETED
-// Emergency contacts - IN PROGRESS
-// File storage + organization - IN PROGRESS
-// Display video files - NOT STARTED
+// Emergency contacts - COMPLETED
+// File storage + organization - COMPLETED
+// Display recorded front/back video and metadata - IN PROGRESS
+// Toast notifications for video start/stop, background handling - NOT STARTED
 
 struct HomeView: View {
     @State private var isTapped = false
