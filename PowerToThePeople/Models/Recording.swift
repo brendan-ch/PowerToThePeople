@@ -24,10 +24,10 @@ final class Recording {
     let timestampEnded: Date
     
     /// Latitude of the location that the recording was taken.
-    let locationLatitude: Int32
+    let locationLatitude: Int32?
     
     /// Longitude of the location that the recording was taken.
-    let locationLongitude: Int32
+    let locationLongitude: Int32?
     
     /// Any notes added by the user.
     let notes: String
