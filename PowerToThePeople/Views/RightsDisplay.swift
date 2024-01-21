@@ -103,19 +103,23 @@ struct RightsDisplay: View {
             
             if videoCaptureModel.isRecording {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Circle()
-                        .frame(width: 12, height: 12)
-                        .foregroundStyle(.green)
-                        .opacity(circleOpacity)
-                        .onAppear {
-                            withAnimation(repeatingAnimation) {
-                                if self.circleOpacity == 1.0 {
-                                    self.circleOpacity = 0.4
-                                } else {
-                                    self.circleOpacity = 1.0
+                    HStack {
+                        Text("REC")
+                            .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Circle()
+                            .frame(width: 12, height: 12)
+                            .foregroundStyle(.red)
+                            .opacity(circleOpacity)
+                            .onAppear {
+                                withAnimation(repeatingAnimation) {
+                                    if self.circleOpacity == 1.0 {
+                                        self.circleOpacity = 0.4
+                                    } else {
+                                        self.circleOpacity = 1.0
+                                    }
                                 }
                             }
-                        }
+                    }
                 }
             }
             
