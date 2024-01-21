@@ -37,13 +37,19 @@ struct HomeView: View {
                         .foregroundStyle(Color.white)
                 }
                 
+                NavigationLink {
+                    RightsDisplay(startRecordingOnAppear: false)
+                } label: {
+                    Text("View rights")
+                }.padding()
+                
                 Spacer()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             .background(isTapped ? Color.blue : nil)
             .ignoresSafeArea()
             .navigationDestination(isPresented: $isActivated) {
-                RightsDisplay()
+                RightsDisplay(startRecordingOnAppear: true)
             }
             .toolbar {
                 NavigationLink {
