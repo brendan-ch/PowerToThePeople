@@ -20,6 +20,7 @@
 		20A440B02B5CB64800B4FA66 /* back.mov in Resources */ = {isa = PBXBuildFile; fileRef = 20A440AE2B5CB64800B4FA66 /* back.mov */; };
 		20A440B12B5CB64800B4FA66 /* front.mov in Resources */ = {isa = PBXBuildFile; fileRef = 20A440AF2B5CB64800B4FA66 /* front.mov */; };
 		20A440B32B5CC63100B4FA66 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A440B22B5CC63100B4FA66 /* VideoView.swift */; };
+		20A440B52B5CD72500B4FA66 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A440B42B5CD72500B4FA66 /* IntroductionView.swift */; };
 		20EFB49B2B5C73AB00C772C4 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */; };
 		20EFB49D2B5C780200C772C4 /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */; };
 		20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */; };
@@ -40,6 +41,7 @@
 		20A440AE2B5CB64800B4FA66 /* back.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = back.mov; sourceTree = "<group>"; };
 		20A440AF2B5CB64800B4FA66 /* front.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = front.mov; sourceTree = "<group>"; };
 		20A440B22B5CC63100B4FA66 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		20A440B42B5CD72500B4FA66 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		20EFB49A2B5C73AB00C772C4 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		20EFB49C2B5C780200C772C4 /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
 		20EFB4A12B5C7D6C00C772C4 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				20A440A92B5CAFC300B4FA66 /* RecordingsView.swift */,
 				20A440AB2B5CB37A00B4FA66 /* RecordingView.swift */,
 				20A440B22B5CC63100B4FA66 /* VideoView.swift */,
+				20A440B42B5CD72500B4FA66 /* IntroductionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				20A440AA2B5CAFC300B4FA66 /* RecordingsView.swift in Sources */,
 				206AF7EB2B5B9DBF008DA2DC /* HomeView.swift in Sources */,
 				206AF7FD2B5BA817008DA2DC /* RightsDisplay.swift in Sources */,
+				20A440B52B5CD72500B4FA66 /* IntroductionView.swift in Sources */,
 				20187A4C2B5BB9DE009D98EF /* VideoCaptureService.swift in Sources */,
 				20187A4E2B5BBA85009D98EF /* VideoCaptureModel.swift in Sources */,
 				20EFB4A22B5C7D6C00C772C4 /* ContactView.swift in Sources */,
