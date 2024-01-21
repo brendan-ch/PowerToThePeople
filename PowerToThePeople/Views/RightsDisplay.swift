@@ -13,6 +13,8 @@ import AVFoundation
 // This is just a placeholder for the camera stuff
 
 struct RightsDisplay: View {
+    var startRecordingOnAppear: Bool
+    
     @Environment(\.dismiss) var dismiss
     @State private var circleOpacity = 1.0
     
@@ -84,20 +86,22 @@ struct RightsDisplay: View {
                 Spacer()
             }
             .navigationTitle("Know Your Rights")
-            .navigationBarBackButtonHidden(true)
+            .navigationBarBackButtonHidden(startRecordingOnAppear)
             .navigationBarTitleDisplayMode(.large)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    // Save the video and exit the view
-                    videoCaptureModel.stopRecording()
-                    dismiss()
-                } label: {
-                    Text("Stop Recording and Exit")
-                        .foregroundStyle(Color.red)
+            if startRecordingOnAppear {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        // Save the video and exit the view
+                        videoCaptureModel.stopRecording()
+                        dismiss()
+                    } label: {
+                        Text("Stop Recording and Exit")
+                            .foregroundStyle(Color.red)
+                    }
                 }
             }
             
@@ -130,11 +134,13 @@ struct RightsDisplay: View {
 //            }
         }
         .onAppear {
-            videoCaptureModel.startRecording()
+            if startRecordingOnAppear {
+                videoCaptureModel.startRecording()
+            }
         }
     }
 }
 
 #Preview {
-    RightsDisplay()
+    RightsDisplay(startRecordingOnAppear: false)
 }
