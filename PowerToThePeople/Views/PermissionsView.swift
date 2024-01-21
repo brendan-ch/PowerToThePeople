@@ -21,15 +21,7 @@ struct PermissionsView: View {
                     .multilineTextAlignment(.center)
                 
                 VStack(spacing: 8) {
-                    Button {} label: {
-                        Text("Request camera access")
-                            .fontWeight(.bold)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
+                    SetupButton(text: "Request camera + microphone access") {}
                     .padding(.horizontal)
                     Text("We use the front and back camera to record interactions with police.")
                         .multilineTextAlignment(.center)
@@ -37,31 +29,7 @@ struct PermissionsView: View {
                 .padding(.vertical)
                 
                 VStack(spacing: 8) {
-                    Button {} label: {
-                        Text("Request microphone access")
-                            .fontWeight(.bold)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
-                    .padding(.horizontal)
-                    Text("We use the microphone to record interactions with police.")
-                        .multilineTextAlignment(.center)
-                }
-                .padding(.vertical)
-                
-                VStack(spacing: 8) {
-                    Button {} label: {
-                        Text("Request location access (optional)")
-                            .fontWeight(.bold)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(10)
-                    }
+                    SetupButton(text: "Request location access (optional)") {}
                     .padding(.horizontal)
                     Text("If enabled, your videos will have location data associated with them.")
                         .multilineTextAlignment(.center)

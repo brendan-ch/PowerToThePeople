@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 struct IntroductionView: View {
+    @State private var permissionsViewPresented = false
+    
     var body: some View {
         VStack(spacing: 8) {
             Spacer()
@@ -20,17 +22,14 @@ struct IntroductionView: View {
                 .multilineTextAlignment(.center)
             Spacer()
             
-            Button {} label: {
-                Text("Set up")
-                    .fontWeight(.bold)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-                    .shadow(radius: 2)
+            SetupButton(text: "Continue") {
+                print("Button pressed")
+                permissionsViewPresented = true
             }
             .padding()
+        }
+        .navigationDestination(isPresented: $permissionsViewPresented) {
+            PermissionsView()
         }
     }
 }
