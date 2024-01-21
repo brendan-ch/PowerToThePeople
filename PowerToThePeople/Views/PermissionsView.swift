@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import AVFoundation
 
 /// View for setting up user permissions.
 struct PermissionsView: View {
     @State private var contactsViewPresented = false
+    @State private var cameraPermissionGranted = false
     
     var body: some View {
         ScrollView {
@@ -23,20 +25,20 @@ struct PermissionsView: View {
                     .multilineTextAlignment(.center)
                 
                 VStack(spacing: 8) {
-                    SetupButton(text: "Request camera + microphone access") {}
+                    SetupButton(text: cameraPermissionGranted ? "Camera + microphone access granted" : "Request camera + microphone access", action: requestCameraMicrophonePermission, disabled: cameraPermissionGranted)
                     .padding(.horizontal)
                     Text("We use the front and back camera to record interactions with police.")
                         .multilineTextAlignment(.center)
                 }
                 .padding(.vertical)
                 
-                VStack(spacing: 8) {
-                    SetupButton(text: "Request location access (optional)") {}
-                    .padding(.horizontal)
-                    Text("If enabled, your videos will have location data associated with them.")
-                        .multilineTextAlignment(.center)
-                }
-                .padding(.vertical)
+//                VStack(spacing: 8) {
+//                    SetupButton(text: "Request location access (optional)") {}
+//                    .padding(.horizontal)
+//                    Text("If enabled, your videos will have location data associated with them.")
+//                        .multilineTextAlignment(.center)
+//                }
+//                .padding(.vertical)
 
                 Spacer()
                 Button {
@@ -57,7 +59,45 @@ struct PermissionsView: View {
         .navigationDestination(isPresented: $contactsViewPresented) {
             ContactsSetup()
         }
+        .onAppear() {
+            let videoStatus = AVCaptureDevice.authorizationStatus(for: .video)
+            let microphoneStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+            cameraPermissionGranted = videoStatus == .authorized && microphoneStatus == .authorized
+        }
+    }
+    
+    func requestCameraMicrophonePermission() {
+        VideoCaptureService.attemptAuthorization()
         
+        let videoStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        switch videoStatus {
+            case .notDetermined:
+            print("Not determined")
+            case .restricted:
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            case .denied:
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            case .authorized:
+                print("Authorized")
+            @unknown default:
+                print("Not determined")
+            }
+        
+        let microphoneStatus = AVCaptureDevice.authorizationStatus(for: .audio)
+        switch microphoneStatus {
+        case .notDetermined:
+        print("Not determined")
+        case .restricted:
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        case .denied:
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        case .authorized:
+            print("Authorized")
+        @unknown default:
+            print("Not determined")
+        }
+        
+        cameraPermissionGranted = videoStatus == .authorized && microphoneStatus == .authorized
     }
 }
 
