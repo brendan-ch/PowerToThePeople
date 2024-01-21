@@ -32,6 +32,14 @@ final class Recording {
     /// Any notes added by the user.
     let notes: String
     
+    init(backCameraFile: URL, frontCameraFile: URL, timestampStarted: Date, timestampEnded: Date, notes: String) {
+        self.backCameraFile = backCameraFile
+        self.frontCameraFile = frontCameraFile
+        self.timestampStarted = timestampStarted
+        self.timestampEnded = timestampEnded
+        self.notes = notes
+    }
+    
     init(backCameraFile: URL, frontCameraFile: URL, timestampStarted: Date, timestampEnded: Date, locationLatitude: Int32, locationLongitude: Int32, notes: String) {
         self.backCameraFile = backCameraFile
         self.frontCameraFile = frontCameraFile
