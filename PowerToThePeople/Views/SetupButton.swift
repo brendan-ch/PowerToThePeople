@@ -11,6 +11,7 @@ import SwiftUI
 struct SetupButton: View {
     var text: String
     var action: () -> Void
+    var disabled: Bool?
     
     var body: some View {
         Button(action: action) {
@@ -22,6 +23,6 @@ struct SetupButton: View {
                 .background(Color.blue)
                 .cornerRadius(10)
         }
-        
+        .disabled(disabled ?? false)
     }
 }
